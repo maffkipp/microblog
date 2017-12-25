@@ -77,7 +77,7 @@ def user(username):
 @login_required
 def edit_profile():
     'Route for the edit profile form.'
-    form = EditProfileForm()
+    form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
